@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 
-const Navbar = () => (
+interface NavbarProps {
+  onPreOrder?: () => void;
+}
+
+const Navbar = ({ onPreOrder }: NavbarProps) => (
   <motion.nav
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
@@ -17,12 +21,12 @@ const Navbar = () => (
       <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
         Features
       </a>
-      <a
-        href="#buy"
+      <button
+        onClick={onPreOrder}
         className="text-sm font-medium bg-primary text-primary-foreground px-5 py-2 rounded-md hover:opacity-90 transition-opacity"
       >
         Buy Now
-      </a>
+      </button>
     </div>
   </motion.nav>
 );

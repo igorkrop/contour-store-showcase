@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 
-const CTASection = () => (
+interface CTASectionProps {
+  onPreOrder?: () => void;
+}
+
+const CTASection = ({ onPreOrder }: CTASectionProps) => (
   <section id="buy" className="relative py-32 px-6 z-10">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -16,8 +20,11 @@ const CTASection = () => (
         Limited first run. Ships Q2 2026. Secure yours before it's gone.
       </p>
       <div className="flex flex-col items-center gap-4">
-        <span className="text-4xl font-display font-bold text-foreground">$189</span>
-        <button className="bg-primary text-primary-foreground px-12 py-4 rounded-md font-semibold text-lg hover:opacity-90 transition-opacity">
+        <span className="text-4xl font-display font-bold text-foreground">€169.99</span>
+        <button
+          onClick={onPreOrder}
+          className="bg-primary text-primary-foreground px-12 py-4 rounded-md font-semibold text-lg hover:opacity-90 transition-opacity"
+        >
           Pre-Order Contour V1
         </button>
         <p className="text-xs text-muted-foreground mt-2">Free shipping worldwide · 1-year warranty</p>
