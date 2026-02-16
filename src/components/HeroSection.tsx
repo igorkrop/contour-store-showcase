@@ -45,33 +45,33 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Keyboard carousel */}
-        <div className="relative z-10 w-full max-w-3xl flex items-center justify-center">
+        <div className="relative z-10 w-full max-w-3xl">
           <button
             onClick={prev}
-            className="absolute left-0 md:-left-14 z-20 p-2 rounded-full bg-muted/60 hover:bg-muted text-foreground transition-colors"
+            className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-muted/60 hover:bg-muted text-foreground transition-colors"
             aria-label="Previous style"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          <div className="w-full overflow-hidden">
-            <AnimatePresence mode="wait">
+          <div className="w-full aspect-[16/9] relative overflow-hidden">
+            <AnimatePresence initial={false}>
               <motion.img
                 key={current}
                 src={styles[current].img}
                 alt={`Contour V1 — ${styles[current].name}`}
-                initial={{ opacity: 0, x: 60 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -60 }}
-                transition={{ duration: 0.35 }}
-                className="w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 w-full h-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
               />
             </AnimatePresence>
           </div>
 
           <button
             onClick={next}
-            className="absolute right-0 md:-right-14 z-20 p-2 rounded-full bg-muted/60 hover:bg-muted text-foreground transition-colors"
+            className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-muted/60 hover:bg-muted text-foreground transition-colors"
             aria-label="Next style"
           >
             <ChevronRight className="w-6 h-6" />
